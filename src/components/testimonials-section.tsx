@@ -4,38 +4,29 @@ import { Star, Quote } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Sarah J.",
       role: "Operations Manager",
-      company: "First National Bank",
+      company: "Financial Services",
       content: "AptivAI transformed our team's understanding of AI. What seemed intimidating became accessible and practical. Our productivity has increased significantly since the training.",
       rating: 5,
       logo: "🏦"
     },
     {
-      name: "Michael van der Merwe", 
+      name: "Michael M.", 
       role: "Call Center Director",
-      company: "Discovery Limited",
+      company: "Customer Service",
       content: "The hands-on approach was exactly what we needed. Our agents now confidently use AI tools to enhance customer interactions while maintaining the personal touch.",
       rating: 5,
       logo: "📞"
     },
     {
-      name: "Priya Patel",
+      name: "Priya P.",
       role: "HR Director", 
-      company: "Shoprite Holdings",
+      company: "Retail Industry",
       content: "The future skills consulting helped us prepare our workforce strategically. We now have a clear roadmap for AI adoption across all departments.",
       rating: 5,
       logo: "🛒"
     }
-  ];
-
-  const partners = [
-    { name: "First National Bank", logo: "🏦" },
-    { name: "Discovery Limited", logo: "📞" },
-    { name: "Shoprite Holdings", logo: "🛒" },
-    { name: "Nedbank", logo: "🏛️" },
-    { name: "Old Mutual", logo: "🛡️" },
-    { name: "MTN Group", logo: "📱" }
   ];
 
   return (
@@ -89,30 +80,14 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        {/* Trusted Partners */}
-        <div className="bg-card border border-border/50 rounded-2xl p-8 md:p-12">
-          <h3 className="text-2xl font-bold text-foreground text-center mb-8">
-            Trusted by Leading South African Companies
+        {/* Client Focus */}
+        <div className="bg-card border border-border/50 rounded-2xl p-8 md:p-12 text-center">
+          <h3 className="text-2xl font-bold text-foreground mb-4">
+            Empowering Teams Across Industries
           </h3>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {partners.map((partner, index) => (
-              <div key={index} className="text-center group">
-                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">
-                  {partner.logo}
-                </div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  {partner.name}
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-8 text-center">
-            <p className="text-muted-foreground">
-              Join these industry leaders in preparing your team for the AI-powered future
-            </p>
-          </div>
+          <p className="text-muted-foreground">
+            Ready to transform your team's AI capabilities? Let's discuss your specific needs.
+          </p>
         </div>
 
         {/* Stats */}
