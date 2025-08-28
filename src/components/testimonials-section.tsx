@@ -37,8 +37,8 @@ const TestimonialsSection = () => {
             What Our <span className="text-accent">Clients Say</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Trusted by leading South African companies to bridge the AI skills gap 
-            and empower their teams with practical AI knowledge.
+            Helping teams bridge the AI skills gap with practical, 
+            accessible training solutions.
           </p>
         </div>
 
