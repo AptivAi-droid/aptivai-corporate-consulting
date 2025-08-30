@@ -41,16 +41,31 @@ const ContactSection = () => {
     setIsSubmitting(false);
   };
 
+  const teamMembers = [
+    {
+      name: "Neal Titus",
+      role: "Founder/AI Coach",
+      phone: "+27 71 156 6605",
+      email: "Titus@aptivai.com"
+    },
+    {
+      name: "Delano Duplessis", 
+      role: "CEO/Operations Specialist",
+      phone: "+27 62 252 5618",
+      email: "Duplessis@aptivai.com"
+    }
+  ];
+
   const contactInfo = [
     {
       icon: Phone,
-      label: "Phone",
+      label: "General Phone",
       value: "+27 (0) 11 123 4567",
       link: "tel:+27111234567"
     },
     {
       icon: Mail,
-      label: "Email", 
+      label: "General Email", 
       value: "info@aptivai.co.za",
       link: "mailto:info@aptivai.co.za"
     },
@@ -169,10 +184,48 @@ const ContactSection = () => {
 
           {/* Contact Information */}
           <div className="space-y-8">
+            {/* Team Members */}
             <Card className="border-border/50 shadow-card">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-foreground">
-                  Get in Touch
+                  Our Leadership Team
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-8">
+                {teamMembers.map((member, index) => (
+                  <div key={index} className="border-b border-border/30 last:border-b-0 pb-6 last:pb-0">
+                    <h4 className="text-lg font-semibold text-foreground mb-1">{member.name}</h4>
+                    <p className="text-accent font-medium mb-3">{member.role}</p>
+                    <div className="space-y-2">
+                      <div className="flex items-center space-x-3">
+                        <Phone className="h-4 w-4 text-accent" />
+                        <a
+                          href={`tel:${member.phone.replace(/\s/g, '')}`}
+                          className="text-foreground hover:text-accent transition-colors"
+                        >
+                          {member.phone}
+                        </a>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <Mail className="h-4 w-4 text-accent" />
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="text-foreground hover:text-accent transition-colors"
+                        >
+                          {member.email}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            {/* General Contact */}
+            <Card className="border-border/50 shadow-card">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-foreground">
+                  General Contact
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
