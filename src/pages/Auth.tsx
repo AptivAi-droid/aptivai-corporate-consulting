@@ -15,8 +15,10 @@ const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [signInData, setSignInData] = useState({ email: '', password: '' });
   const [signUpData, setSignUpData] = useState({ email: '', password: '', fullName: '' });
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
   
-  const { user, signIn, signUp } = useAuth();
+  const { user, signIn, signUp, resetPassword } = useAuth();
   const { toast } = useToast();
 
   // Redirect if already authenticated
@@ -68,6 +70,30 @@ const Auth = () => {
     setIsLoading(false);
   };
 
+  const handleResetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    const { error } = await resetPassword(resetEmail);
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Reset Failed",
+        description: error.message,
+      });
+    } else {
+      toast({
+        title: "Reset Email Sent!",
+        description: "Check your email for password reset instructions.",
+      });
+      setShowForgotPassword(false);
+      setResetEmail('');
+    }
+
+    setIsLoading(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4">
       <div className="w-full max-w-md">
@@ -79,17 +105,54 @@ const Auth = () => {
 
         <Card className="border-0 shadow-elegant">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold">Welcome</CardTitle>
+            <CardTitle className="text-2xl font-bold">
+              {showForgotPassword ? "Reset Password" : "Welcome"}
+            </CardTitle>
             <CardDescription>
-              Sign in to your account or create a new one
+              {showForgotPassword 
+                ? "Enter your email to reset your password" 
+                : "Sign in to your account or create a new one"
+              }
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Tabs defaultValue="signin" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="signin">Sign In</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
-              </TabsList>
+            {showForgotPassword ? (
+              <form onSubmit={handleResetPassword} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="reset-email">Email</Label>
+                  <Input
+                    id="reset-email"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={resetEmail}
+                    onChange={(e) => setResetEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="flex gap-2">
+                  <Button
+                    type="submit"
+                    className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Sending..." : "Send Reset Email"}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setShowForgotPassword(false)}
+                    disabled={isLoading}
+                  >
+                    Back
+                  </Button>
+                </div>
+              </form>
+            ) : (
+              <Tabs defaultValue="signin" className="w-full">
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value="signin">Sign In</TabsTrigger>
+                  <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                </TabsList>
 
               <TabsContent value="signin">
                 <form onSubmit={handleSignIn} className="space-y-4">
@@ -134,6 +197,15 @@ const Auth = () => {
                     <LogIn className="w-4 h-4 mr-2" />
                     {isLoading ? "Signing In..." : "Sign In"}
                   </Button>
+                  <div className="text-center mt-4">
+                    <button
+                      type="button"
+                      onClick={() => setShowForgotPassword(true)}
+                      className="text-sm text-muted-foreground hover:text-accent transition-colors"
+                    >
+                      Forgot your password?
+                    </button>
+                  </div>
                 </form>
               </TabsContent>
 
@@ -194,6 +266,7 @@ const Auth = () => {
                 </form>
               </TabsContent>
             </Tabs>
+            )}
           </CardContent>
         </Card>
       </div>
