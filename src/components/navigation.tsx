@@ -17,6 +17,7 @@ const Navigation = () => {
     { label: "Services", href: "#services", type: "scroll" },
     { label: "Training", href: "#training", type: "scroll" },
     { label: "Courses", href: "/courses", type: "link" },
+    { label: "AI Agents", href: "/ai-agents", type: "link" },
     { label: "Contact", href: "#contact", type: "scroll" },
   ];
 
