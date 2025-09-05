@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { BookOpen, Upload, Users, Settings, BarChart3 } from 'lucide-react';
 import CourseManager from '@/components/admin/CourseManager';
 import ContentUploader from '@/components/admin/ContentUploader';
+import OversightDashboard from '@/components/OversightDashboard';
 
 const AdminDashboard = () => {
   const { user, isAdmin, loading } = useAuth();
@@ -38,7 +39,7 @@ const AdminDashboard = () => {
         </div>
 
         <Tabs defaultValue="courses" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="courses" className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
               Courses
@@ -50,6 +51,10 @@ const AdminDashboard = () => {
             <TabsTrigger value="users" className="flex items-center gap-2">
               <Users className="h-4 w-4" />
               Users
+            </TabsTrigger>
+            <TabsTrigger value="oversight" className="flex items-center gap-2">
+              <Settings className="h-4 w-4" />
+              Oversight
             </TabsTrigger>
             <TabsTrigger value="analytics" className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4" />
@@ -83,6 +88,10 @@ const AdminDashboard = () => {
                 </div>
               </CardContent>
             </Card>
+          </TabsContent>
+
+          <TabsContent value="oversight">
+            <OversightDashboard />
           </TabsContent>
 
           <TabsContent value="analytics">

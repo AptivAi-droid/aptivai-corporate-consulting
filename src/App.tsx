@@ -14,6 +14,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Profile from "./pages/Profile";
 import AIAgents from "./pages/AIAgents";
+import CompanyStructure from "./pages/CompanyStructure";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/ai-agents" element={<AIAgents />} />
+            <Route path="/company-structure" element={<CompanyStructure />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
