@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, Linkedin, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send } from "lucide-react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -68,12 +68,6 @@ const ContactSection = () => {
       label: "General Email", 
       value: "info@aptivai.co.za",
       link: "mailto:info@aptivai.co.za"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "Connect with us",
-      link: "https://linkedin.com/company/aptivai"
     },
     {
       icon: MapPin,

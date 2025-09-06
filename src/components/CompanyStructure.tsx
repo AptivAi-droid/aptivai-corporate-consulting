@@ -16,7 +16,7 @@ interface Role {
 const companyRoles: Role[] = [
   // Executive Leadership
   {
-    title: "CEO",
+    title: "CEO (Human)",
     name: "Neal Titus",
     department: "Executive Leadership",
     type: "human",
