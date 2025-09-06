@@ -14,6 +14,108 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_assessments: {
+        Row: {
+          answers: Json
+          assessment_type: string
+          completed_at: string | null
+          created_at: string
+          id: string
+          questions: Json
+          recommendations: Json | null
+          score: number | null
+          user_id: string | null
+        }
+        Insert: {
+          answers?: Json
+          assessment_type: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          questions?: Json
+          recommendations?: Json | null
+          score?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          answers?: Json
+          assessment_type?: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          questions?: Json
+          recommendations?: Json | null
+          score?: number | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      ai_chat_sessions: {
+        Row: {
+          agent_type: string
+          created_at: string
+          id: string
+          session_data: Json | null
+          status: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          agent_type: string
+          created_at?: string
+          id?: string
+          session_data?: Json | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          agent_type?: string
+          created_at?: string
+          id?: string
+          session_data?: Json | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      consultation_bookings: {
+        Row: {
+          booking_data: Json
+          consultation_type: string
+          created_at: string
+          id: string
+          preferred_times: Json | null
+          scheduled_for: string | null
+          status: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          booking_data?: Json
+          consultation_type: string
+          created_at?: string
+          id?: string
+          preferred_times?: Json | null
+          scheduled_for?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          booking_data?: Json
+          consultation_type?: string
+          created_at?: string
+          id?: string
+          preferred_times?: Json | null
+          scheduled_for?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       content_categories: {
         Row: {
           color: string | null
@@ -172,6 +274,48 @@ export type Database = {
         }
         Relationships: []
       }
+      lead_intelligence: {
+        Row: {
+          ai_readiness_score: number | null
+          company_info: Json | null
+          company_size: string | null
+          created_at: string
+          id: string
+          industry: string | null
+          last_interaction: string | null
+          pain_points: Json | null
+          priority_level: string | null
+          recommended_solutions: Json | null
+          user_id: string | null
+        }
+        Insert: {
+          ai_readiness_score?: number | null
+          company_info?: Json | null
+          company_size?: string | null
+          created_at?: string
+          id?: string
+          industry?: string | null
+          last_interaction?: string | null
+          pain_points?: Json | null
+          priority_level?: string | null
+          recommended_solutions?: Json | null
+          user_id?: string | null
+        }
+        Update: {
+          ai_readiness_score?: number | null
+          company_info?: Json | null
+          company_size?: string | null
+          created_at?: string
+          id?: string
+          industry?: string | null
+          last_interaction?: string | null
+          pain_points?: Json | null
+          priority_level?: string | null
+          recommended_solutions?: Json | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -199,6 +343,42 @@ export type Database = {
           id?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      user_preferences: {
+        Row: {
+          created_at: string
+          id: string
+          interaction_history: Json | null
+          interests: Json | null
+          learning_style: Json | null
+          preferred_content_types: Json | null
+          skill_level: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          interaction_history?: Json | null
+          interests?: Json | null
+          learning_style?: Json | null
+          preferred_content_types?: Json | null
+          skill_level?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          interaction_history?: Json | null
+          interests?: Json | null
+          learning_style?: Json | null
+          preferred_content_types?: Json | null
+          skill_level?: string | null
+          updated_at?: string
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -231,6 +411,10 @@ export type Database = {
       get_current_user_role: {
         Args: Record<PropertyKey, never>
         Returns: Database["public"]["Enums"]["app_role"]
+      }
+      grant_admin_role_to_user: {
+        Args: { user_email: string }
+        Returns: undefined
       }
       has_role: {
         Args: {

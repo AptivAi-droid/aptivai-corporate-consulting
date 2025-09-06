@@ -24,9 +24,21 @@ const Navigation = () => {
 
   const handleNavClick = (item: typeof navItems[0]) => {
     if (item.type === "scroll") {
-      const element = document.querySelector(item.href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      // First navigate to home if not already there
+      if (window.location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation to complete before scrolling
+        setTimeout(() => {
+          const element = document.querySelector(item.href);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        const element = document.querySelector(item.href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     } else {
       navigate(item.href);
@@ -44,13 +56,13 @@ const Navigation = () => {
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-2">
             <img 
               src={aptivaiLogo} 
               alt="AptivAI Logo" 
-              className="h-8 w-auto"
+              className="h-8 w-auto flex-shrink-0"
             />
-            <span className="text-xl font-bold text-foreground">AptivAI</span>
+            <span className="text-xl font-bold text-foreground whitespace-nowrap">AptivAI</span>
           </Link>
 
           {/* Desktop Navigation */}

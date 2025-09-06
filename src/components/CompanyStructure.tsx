@@ -16,12 +16,30 @@ interface Role {
 const companyRoles: Role[] = [
   // Executive Leadership
   {
-    title: "CEO (Human)",
-    name: "Neal Titus",
+    title: "CEO",
+    name: "Neal Titus (nealtitus4823@gmail.com)",
     department: "Executive Leadership",
     type: "human",
-    goals: ["Strategic leadership", "Company vision", "Partnership development"],
-    oversight: ["All major business decisions", "AI agent performance monitoring"],
+    goals: ["Strategic leadership", "Company vision", "Partnership development", "All AI agent oversight and approvals"],
+    oversight: ["All major business decisions", "Final approval for all AI agent actions", "Complete system oversight"],
+    riskLevel: "high"
+  },
+  {
+    title: "Head of Operations",
+    name: "Delano",
+    department: "Executive Leadership",
+    type: "human",
+    goals: ["Operations oversight", "Process optimization", "AI agent operations approval"],
+    oversight: ["Operations-related AI agents require approval", "Full admin rights"],
+    riskLevel: "high"
+  },
+  {
+    title: "Head of IT",
+    name: "Tshepang Huma",
+    department: "Executive Leadership",
+    type: "human",
+    goals: ["IT oversight", "Technical infrastructure", "AI agent IT operations approval"],
+    oversight: ["IT-related AI agents require approval", "Full admin rights"],
     riskLevel: "high"
   },
 
