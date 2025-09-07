@@ -274,6 +274,72 @@ export type Database = {
         }
         Relationships: []
       }
+      knowledge_base: {
+        Row: {
+          category: string
+          content: string
+          created_at: string
+          id: string
+          is_searchable: boolean | null
+          keywords: string[] | null
+          module_number: number | null
+          section: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          content: string
+          created_at?: string
+          id?: string
+          is_searchable?: boolean | null
+          keywords?: string[] | null
+          module_number?: number | null
+          section?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string
+          id?: string
+          is_searchable?: boolean | null
+          keywords?: string[] | null
+          module_number?: number | null
+          section?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      knowledge_faq: {
+        Row: {
+          answer: string
+          category: string | null
+          created_at: string
+          id: string
+          keywords: string[] | null
+          question: string
+        }
+        Insert: {
+          answer: string
+          category?: string | null
+          created_at?: string
+          id?: string
+          keywords?: string[] | null
+          question: string
+        }
+        Update: {
+          answer?: string
+          category?: string | null
+          created_at?: string
+          id?: string
+          keywords?: string[] | null
+          question?: string
+        }
+        Relationships: []
+      }
       lead_intelligence: {
         Row: {
           ai_readiness_score: number | null
@@ -422,6 +488,18 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      search_knowledge_base: {
+        Args: { search_query: string }
+        Returns: {
+          category: string
+          content: string
+          id: string
+          module_number: number
+          relevance: number
+          section: string
+          title: string
+        }[]
       }
     }
     Enums: {
