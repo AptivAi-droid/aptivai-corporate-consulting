@@ -18,28 +18,14 @@ const Navigation = () => {
     { label: "Training", href: "#training", type: "scroll" },
     { label: "Courses", href: "/courses", type: "link" },
     { label: "AI Agents", href: "/ai-agents", type: "link" },
-    { label: "Knowledge Base", href: "/knowledge-base", type: "link" },
-    { label: "Company", href: "/company-structure", type: "link" },
     { label: "Contact", href: "#contact", type: "scroll" },
   ];
 
   const handleNavClick = (item: typeof navItems[0]) => {
     if (item.type === "scroll") {
-      // First navigate to home if not already there
-      if (window.location.pathname !== '/') {
-        navigate('/');
-        // Wait for navigation to complete before scrolling
-        setTimeout(() => {
-          const element = document.querySelector(item.href);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 100);
-      } else {
-        const element = document.querySelector(item.href);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
+      const element = document.querySelector(item.href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
       navigate(item.href);
@@ -57,13 +43,13 @@ const Navigation = () => {
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-3">
             <img 
               src={aptivaiLogo} 
               alt="AptivAI Logo" 
-              className="h-8 w-auto flex-shrink-0"
+              className="h-8 w-auto"
             />
-            <span className="text-xl font-bold text-foreground whitespace-nowrap">AptivAI</span>
+            <span className="text-xl font-bold text-foreground">AptivAI</span>
           </Link>
 
           {/* Desktop Navigation */}

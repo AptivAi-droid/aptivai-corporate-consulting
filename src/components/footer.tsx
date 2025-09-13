@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Linkedin, Mail, Phone } from "lucide-react";
 import aptivaiLogo from "@/assets/aptivai-logo.png";
 
 const Footer = () => {
@@ -23,6 +23,13 @@ const Footer = () => {
               AI Made Practical, Ethical, and Simple.
             </p>
             <div className="flex space-x-4">
+              <a 
+                href="https://linkedin.com/company/aptivai" 
+                className="w-10 h-10 bg-corporate-grey rounded-full flex items-center justify-center hover:bg-accent transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
               <a 
                 href="mailto:info@aptivai.co.za" 
                 className="w-10 h-10 bg-corporate-grey rounded-full flex items-center justify-center hover:bg-accent transition-colors"
