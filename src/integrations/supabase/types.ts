@@ -14,6 +14,108 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_assessments: {
+        Row: {
+          answers: Json
+          assessment_type: string
+          completed_at: string | null
+          created_at: string
+          id: string
+          questions: Json
+          recommendations: Json | null
+          score: number | null
+          user_id: string | null
+        }
+        Insert: {
+          answers?: Json
+          assessment_type: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          questions?: Json
+          recommendations?: Json | null
+          score?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          answers?: Json
+          assessment_type?: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          questions?: Json
+          recommendations?: Json | null
+          score?: number | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      ai_chat_sessions: {
+        Row: {
+          agent_type: string
+          created_at: string
+          id: string
+          session_data: Json | null
+          status: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          agent_type: string
+          created_at?: string
+          id?: string
+          session_data?: Json | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          agent_type?: string
+          created_at?: string
+          id?: string
+          session_data?: Json | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      consultation_bookings: {
+        Row: {
+          booking_data: Json
+          consultation_type: string
+          created_at: string
+          id: string
+          preferred_times: Json | null
+          scheduled_for: string | null
+          status: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          booking_data?: Json
+          consultation_type: string
+          created_at?: string
+          id?: string
+          preferred_times?: Json | null
+          scheduled_for?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          booking_data?: Json
+          consultation_type?: string
+          created_at?: string
+          id?: string
+          preferred_times?: Json | null
+          scheduled_for?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       content_categories: {
         Row: {
           color: string | null
@@ -172,6 +274,158 @@ export type Database = {
         }
         Relationships: []
       }
+      knowledge_base: {
+        Row: {
+          category: string
+          content: string
+          created_at: string
+          id: string
+          is_searchable: boolean | null
+          keywords: string[] | null
+          module_number: number | null
+          section: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          content: string
+          created_at?: string
+          id?: string
+          is_searchable?: boolean | null
+          keywords?: string[] | null
+          module_number?: number | null
+          section?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string
+          id?: string
+          is_searchable?: boolean | null
+          keywords?: string[] | null
+          module_number?: number | null
+          section?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      knowledge_faq: {
+        Row: {
+          answer: string
+          category: string | null
+          created_at: string
+          id: string
+          keywords: string[] | null
+          question: string
+        }
+        Insert: {
+          answer: string
+          category?: string | null
+          created_at?: string
+          id?: string
+          keywords?: string[] | null
+          question: string
+        }
+        Update: {
+          answer?: string
+          category?: string | null
+          created_at?: string
+          id?: string
+          keywords?: string[] | null
+          question?: string
+        }
+        Relationships: []
+      }
+      lead_intelligence: {
+        Row: {
+          ai_readiness_score: number | null
+          company_info: Json | null
+          company_size: string | null
+          created_at: string
+          id: string
+          industry: string | null
+          last_interaction: string | null
+          pain_points: Json | null
+          priority_level: string | null
+          recommended_solutions: Json | null
+          user_id: string | null
+        }
+        Insert: {
+          ai_readiness_score?: number | null
+          company_info?: Json | null
+          company_size?: string | null
+          created_at?: string
+          id?: string
+          industry?: string | null
+          last_interaction?: string | null
+          pain_points?: Json | null
+          priority_level?: string | null
+          recommended_solutions?: Json | null
+          user_id?: string | null
+        }
+        Update: {
+          ai_readiness_score?: number | null
+          company_info?: Json | null
+          company_size?: string | null
+          created_at?: string
+          id?: string
+          industry?: string | null
+          last_interaction?: string | null
+          pain_points?: Json | null
+          priority_level?: string | null
+          recommended_solutions?: Json | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      payments: {
+        Row: {
+          amount_zar: number
+          created_at: string | null
+          external_payment_id: string | null
+          id: string
+          paid_at: string | null
+          payment_method: string | null
+          payment_provider: string
+          status: string
+          subscription_id: string
+        }
+        Insert: {
+          amount_zar: number
+          created_at?: string | null
+          external_payment_id?: string | null
+          id?: string
+          paid_at?: string | null
+          payment_method?: string | null
+          payment_provider: string
+          status?: string
+          subscription_id: string
+        }
+        Update: {
+          amount_zar?: number
+          created_at?: string | null
+          external_payment_id?: string | null
+          id?: string
+          paid_at?: string | null
+          payment_method?: string | null
+          payment_provider?: string
+          status?: string
+          subscription_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -199,6 +453,143 @@ export type Database = {
           id?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      subscription_tiers: {
+        Row: {
+          access_days: number | null
+          additional_learner_price_zar: number | null
+          billing_cycle: string
+          created_at: string | null
+          description: string | null
+          features: Json | null
+          id: string
+          is_active: boolean | null
+          max_learners: number | null
+          name: string
+          price_zar: number
+          updated_at: string | null
+        }
+        Insert: {
+          access_days?: number | null
+          additional_learner_price_zar?: number | null
+          billing_cycle: string
+          created_at?: string | null
+          description?: string | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean | null
+          max_learners?: number | null
+          name: string
+          price_zar: number
+          updated_at?: string | null
+        }
+        Update: {
+          access_days?: number | null
+          additional_learner_price_zar?: number | null
+          billing_cycle?: string
+          created_at?: string | null
+          description?: string | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean | null
+          max_learners?: number | null
+          name?: string
+          price_zar?: number
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      subscriptions: {
+        Row: {
+          cancel_at_period_end: boolean | null
+          created_at: string | null
+          current_period_end: string
+          current_period_start: string
+          external_subscription_id: string | null
+          id: string
+          learner_count: number | null
+          payment_provider: string | null
+          status: string
+          tier_id: string
+          total_amount_zar: number
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          cancel_at_period_end?: boolean | null
+          created_at?: string | null
+          current_period_end: string
+          current_period_start?: string
+          external_subscription_id?: string | null
+          id?: string
+          learner_count?: number | null
+          payment_provider?: string | null
+          status?: string
+          tier_id: string
+          total_amount_zar: number
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          cancel_at_period_end?: boolean | null
+          created_at?: string | null
+          current_period_end?: string
+          current_period_start?: string
+          external_subscription_id?: string | null
+          id?: string
+          learner_count?: number | null
+          payment_provider?: string | null
+          status?: string
+          tier_id?: string
+          total_amount_zar?: number
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "subscriptions_tier_id_fkey"
+            columns: ["tier_id"]
+            isOneToOne: false
+            referencedRelation: "subscription_tiers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_preferences: {
+        Row: {
+          created_at: string
+          id: string
+          interaction_history: Json | null
+          interests: Json | null
+          learning_style: Json | null
+          preferred_content_types: Json | null
+          skill_level: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          interaction_history?: Json | null
+          interests?: Json | null
+          learning_style?: Json | null
+          preferred_content_types?: Json | null
+          skill_level?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          interaction_history?: Json | null
+          interests?: Json | null
+          learning_style?: Json | null
+          preferred_content_types?: Json | null
+          skill_level?: string | null
+          updated_at?: string
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -232,12 +623,28 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: Database["public"]["Enums"]["app_role"]
       }
+      grant_admin_role_to_user: {
+        Args: { user_email: string }
+        Returns: undefined
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
           _user_id: string
         }
         Returns: boolean
+      }
+      search_knowledge_base: {
+        Args: { search_query: string }
+        Returns: {
+          category: string
+          content: string
+          id: string
+          module_number: number
+          relevance: number
+          section: string
+          title: string
+        }[]
       }
     }
     Enums: {
