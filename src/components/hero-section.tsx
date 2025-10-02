@@ -14,7 +14,7 @@ const HeroSection = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden pt-16"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${heroBg})`,
         backgroundSize: 'cover',
