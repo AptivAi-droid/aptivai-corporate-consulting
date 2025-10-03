@@ -5,3 +5,6 @@ verify_jwt = true
 
 [functions.ai-readiness-assessment]
 verify_jwt = false
+
+[functions.business-consultant]
+verify_jwt = false

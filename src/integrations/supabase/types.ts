@@ -80,6 +80,47 @@ export type Database = {
         }
         Relationships: []
       }
+      business_consultations: {
+        Row: {
+          analysis_results: Json | null
+          business_context: Json | null
+          created_at: string | null
+          id: string
+          session_id: string | null
+          status: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          analysis_results?: Json | null
+          business_context?: Json | null
+          created_at?: string | null
+          id?: string
+          session_id?: string | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          analysis_results?: Json | null
+          business_context?: Json | null
+          created_at?: string | null
+          id?: string
+          session_id?: string | null
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "business_consultations_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "ai_chat_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       consultation_bookings: {
         Row: {
           booking_data: Json
@@ -115,6 +156,91 @@ export type Database = {
           user_id?: string | null
         }
         Relationships: []
+      }
+      consultation_kpis: {
+        Row: {
+          consultation_id: string
+          created_at: string | null
+          current_value: number | null
+          id: string
+          kpi_name: string
+          measurement_date: string | null
+          notes: string | null
+          target_value: number | null
+        }
+        Insert: {
+          consultation_id: string
+          created_at?: string | null
+          current_value?: number | null
+          id?: string
+          kpi_name: string
+          measurement_date?: string | null
+          notes?: string | null
+          target_value?: number | null
+        }
+        Update: {
+          consultation_id?: string
+          created_at?: string | null
+          current_value?: number | null
+          id?: string
+          kpi_name?: string
+          measurement_date?: string | null
+          notes?: string | null
+          target_value?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultation_kpis_consultation_id_fkey"
+            columns: ["consultation_id"]
+            isOneToOne: false
+            referencedRelation: "business_consultations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      consultation_recommendations: {
+        Row: {
+          category: string
+          consultation_id: string
+          created_at: string | null
+          expected_impact: Json | null
+          id: string
+          implementation_status: string | null
+          implemented_at: string | null
+          priority: string | null
+          recommendation: string
+        }
+        Insert: {
+          category: string
+          consultation_id: string
+          created_at?: string | null
+          expected_impact?: Json | null
+          id?: string
+          implementation_status?: string | null
+          implemented_at?: string | null
+          priority?: string | null
+          recommendation: string
+        }
+        Update: {
+          category?: string
+          consultation_id?: string
+          created_at?: string | null
+          expected_impact?: Json | null
+          id?: string
+          implementation_status?: string | null
+          implemented_at?: string | null
+          priority?: string | null
+          recommendation?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultation_recommendations_consultation_id_fkey"
+            columns: ["consultation_id"]
+            isOneToOne: false
+            referencedRelation: "business_consultations"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       content_categories: {
         Row: {

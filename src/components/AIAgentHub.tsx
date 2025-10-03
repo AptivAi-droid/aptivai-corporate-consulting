@@ -9,7 +9,8 @@ import {
   Users, 
   Sparkles,
   ArrowRight,
-  Bot
+  Bot,
+  Briefcase
 } from "lucide-react";
 import { AIChat } from "./AIChat";
 
@@ -74,6 +75,16 @@ const aiAgents: AIAgent[] = [
     category: "Personalization",
     features: ["Content adaptation", "Learning style matching", "Progress tracking"],
     color: "bg-pink-500/10 text-pink-700 border-pink-200"
+  },
+  {
+    id: "business-consultant",
+    name: "Business Consultant",
+    description: "Expert strategic guidance for growth and operations",
+    detailedDescription: "I provide expert guidance on business strategy, operations, and growth. I help identify challenges, design solutions, and implement improvements while ensuring measurable results. I conduct strategic analysis, provide actionable recommendations, support implementation, and track performance with clear KPIs.",
+    icon: Briefcase,
+    category: "Consulting",
+    features: ["Strategic analysis", "Growth recommendations", "KPI tracking", "Implementation roadmaps"],
+    color: "bg-indigo-500/10 text-indigo-700 border-indigo-200"
   }
 ];
 
