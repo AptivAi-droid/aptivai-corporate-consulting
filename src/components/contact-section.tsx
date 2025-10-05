@@ -84,11 +84,11 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4 lg:px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Ready to Get <span className="text-accent">Started?</span>
+            Ready to Get <span className="bg-gradient-gold bg-clip-text text-transparent">Started?</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
             Let's discuss how we can help your team bridge the AI skills gap. 
@@ -173,7 +173,7 @@ const ContactSection = () => {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-gold"
+                  className="w-full bg-accent hover:bg-accent text-accent-foreground shadow-gold transition-all duration-300 hover:scale-105"
                 >
                   {isSubmitting ? "Sending..." : "Send Inquiry"}
                   <Send className="ml-2 h-4 w-4" />

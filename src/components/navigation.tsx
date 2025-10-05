@@ -54,12 +54,12 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item)}
-                className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors whitespace-nowrap"
               >
                 {item.label}
               </button>
@@ -106,7 +106,7 @@ const Navigation = () => {
                 <Button 
                   variant="outline" 
                   onClick={() => handleNavClick({ label: "Contact", href: "#contact", type: "scroll" })}
-                  className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                  className="border-accent/30 text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
                 >
                   Book Consultation
                 </Button>
@@ -118,7 +118,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="sm"
@@ -132,7 +132,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <button

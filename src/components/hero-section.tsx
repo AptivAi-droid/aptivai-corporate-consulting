@@ -44,23 +44,14 @@ const HeroSection = () => {
             AI Made Practical, Ethical, and Simple
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex justify-center items-center">
             <Button 
               size="lg" 
               onClick={scrollToContact}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg font-semibold shadow-gold group transition-all duration-300 hover:scale-105"
+              className="bg-accent hover:bg-accent text-accent-foreground px-8 py-6 text-lg font-semibold shadow-gold group transition-all duration-300 hover:scale-105"
             >
               Book a Consultation
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-              className="border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg backdrop-blur-sm"
-            >
-              Learn More
             </Button>
           </div>
         </div>
