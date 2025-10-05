@@ -1,11 +1,11 @@
-import Navigation from "@/components/navigation";
+import PageHeader from "@/components/page-header";
 import Footer from "@/components/footer";
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-      <main className="container mx-auto px-4 lg:px-6 py-12 mt-16">
+      <PageHeader />
+      <main className="container mx-auto px-4 lg:px-6 py-12 mt-24">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-corporate-black mb-8">Terms of Service</h1>
           <p className="text-sm text-gray-600 mb-8">Last updated: {new Date().toLocaleDateString()}</p>

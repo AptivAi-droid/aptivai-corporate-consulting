@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navigation from "@/components/navigation";
+import PageHeader from "@/components/page-header";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -149,8 +149,8 @@ const AIReadinessAssessment = () => {
     
     return (
       <div className="min-h-screen flex flex-col">
-        <Navigation />
-        <main className="flex-1 pt-24 pb-16">
+        <PageHeader />
+        <main className="flex-1 pt-32 pb-16">
           <div className="container mx-auto px-4 max-w-4xl">
             <Card className="border-accent">
               <CardHeader className="text-center">
@@ -242,8 +242,8 @@ const AIReadinessAssessment = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
-      <main className="flex-1 pt-24 pb-16">
+      <PageHeader />
+      <main className="flex-1 pt-32 pb-16">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold mb-4">AI Readiness Assessment</h1>

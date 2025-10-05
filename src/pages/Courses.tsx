@@ -6,6 +6,7 @@ import { Clock, Users, BookOpen, Star } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
+import PageHeader from '@/components/page-header';
 
 interface Course {
   id: string;
@@ -54,6 +55,7 @@ const Courses = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
+        <PageHeader />
         <div className="container mx-auto px-4 py-24">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto"></div>
@@ -66,8 +68,9 @@ const Courses = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageHeader />
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-primary-foreground py-24">
+      <section className="bg-gradient-hero text-primary-foreground py-24 mt-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             AI Training Courses

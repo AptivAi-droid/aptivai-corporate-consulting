@@ -3,6 +3,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import PageHeader from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -56,8 +57,8 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-      <main className="container mx-auto px-4 lg:px-6 py-12 mt-16">
+      <PageHeader />
+      <main className="container mx-auto px-4 lg:px-6 py-12 mt-24">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-4xl font-bold text-corporate-black mb-2">Account Settings</h1>

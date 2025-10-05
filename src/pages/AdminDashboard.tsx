@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { BookOpen, Upload, Users, Settings, BarChart3 } from 'lucide-react';
 import CourseManager from '@/components/admin/CourseManager';
 import ContentUploader from '@/components/admin/ContentUploader';
+import PageHeader from '@/components/page-header';
 
 const AdminDashboard = () => {
   const { user, isAdmin, loading } = useAuth();
@@ -29,7 +30,8 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
+      <PageHeader />
+      <div className="container mx-auto px-4 py-8 mt-16">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Admin Dashboard</h1>
           <p className="text-muted-foreground">

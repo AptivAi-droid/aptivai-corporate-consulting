@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Bot, Lock, Sparkles, Users } from "lucide-react";
 import { AIAgentHub } from "@/components/AIAgentHub";
-import Navigation from "@/components/navigation";
+import PageHeader from "@/components/page-header";
 
 const AIAgents = () => {
   const { user } = useAuth();
@@ -12,8 +12,8 @@ const AIAgents = () => {
   if (!user) {
     return (
       <>
-        <Navigation />
-        <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex items-center justify-center px-4">
+        <PageHeader />
+        <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex items-center justify-center px-4 pt-16">
           <Card className="w-full max-w-md">
             <CardContent className="p-8 text-center space-y-6">
               <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
@@ -37,8 +37,8 @@ const AIAgents = () => {
 
   return (
     <>
-      <Navigation />
-      <div className="min-h-screen pt-16">
+      <PageHeader />
+      <div className="min-h-screen pt-24">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-background via-background to-primary/5 py-16">
           <div className="container mx-auto px-4 lg:px-6">

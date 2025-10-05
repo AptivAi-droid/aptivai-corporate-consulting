@@ -9,6 +9,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
 import { Eye, EyeOff, LogIn, UserPlus } from 'lucide-react';
 import aptivaiLogo from '@/assets/aptivai-logo.png';
+import PageHeader from '@/components/page-header';
 
 const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -95,8 +96,10 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-gradient-hero flex flex-col">
+      <PageHeader />
+      <div className="flex-1 flex items-center justify-center p-4">
+        <div className="w-full max-w-md">
         {/* Logo */}
         <div className="flex items-center justify-center mb-8">
           <img src={aptivaiLogo} alt="AptivAI Logo" className="h-12 w-auto mr-3" />
@@ -269,6 +272,7 @@ const Auth = () => {
             )}
           </CardContent>
         </Card>
+        </div>
       </div>
     </div>
   );
