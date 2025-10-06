@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Users, Brain, Shield, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const TrainingSection = () => {
   const modules = [
@@ -87,7 +88,7 @@ const TrainingSection = () => {
                 <p className="text-gray-300 mb-4 leading-relaxed">
                   {module.description}
                 </p>
-                <div className="flex justify-between items-center text-sm">
+                <div className="flex justify-between items-center text-sm mb-4">
                   <span className="text-accent font-medium">
                     {module.duration}
                   </span>
@@ -95,6 +96,13 @@ const TrainingSection = () => {
                     {module.format}
                   </span>
                 </div>
+                {module.number === "02" && (
+                  <Button asChild variant="outline" className="w-full border-accent/50 text-accent hover:bg-accent hover:text-accent-foreground">
+                    <Link to="/courses">
+                      View Course Materials →
+                    </Link>
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}
