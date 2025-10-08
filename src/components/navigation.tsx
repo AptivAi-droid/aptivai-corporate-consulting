@@ -12,13 +12,10 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const navItems = [
-    { label: "Home", href: "#hero", type: "scroll" },
-    { label: "About", href: "#about", type: "scroll" },
-    { label: "Services", href: "#services", type: "scroll" },
-    { label: "Training", href: "#training", type: "scroll" },
+    { label: "Home", href: "/", type: "link" },
     { label: "Courses", href: "/courses", type: "link" },
-    { label: "AI Agents", href: "/ai-agents", type: "link" },
     { label: "AI Readiness", href: "/ai-readiness", type: "link" },
+    { label: "About", href: "/about", type: "link" },
     { label: "Contact", href: "#contact", type: "scroll" },
   ];
 

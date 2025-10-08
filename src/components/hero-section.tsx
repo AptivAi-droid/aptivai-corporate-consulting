@@ -1,15 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import aptivaiLogo from "@/assets/aptivai-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <section 
@@ -33,27 +29,30 @@ const HeroSection = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Bridging the{" "}
+            AI Training for Non-Technical Teams —{" "}
             <span className="bg-gradient-gold bg-clip-text text-transparent">
-              AI Skills Gap
-            </span>{" "}
-            for Non-Technical Teams
+              Made Simple, Practical, and Ethical
+            </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-            AI Made Practical, Ethical, and Simple
+            Discover your team's AI readiness in 5 minutes and get a personalized training roadmap
           </p>
           
           <div className="flex justify-center items-center">
             <Button 
               size="lg" 
-              onClick={scrollToContact}
+              onClick={() => navigate('/ai-readiness')}
               className="bg-accent hover:bg-accent text-accent-foreground px-8 py-6 text-lg font-semibold shadow-gold group transition-all duration-300 hover:scale-105"
             >
-              Book a Consultation
+              Take the Free Assessment
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
+          
+          <p className="text-sm text-gray-300 mt-4">
+            Trusted by 500+ professionals
+          </p>
         </div>
       </div>
       

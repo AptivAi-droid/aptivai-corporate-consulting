@@ -16,6 +16,7 @@ import TermsOfService from "./pages/TermsOfService";
 import Profile from "./pages/Profile";
 import AIAgents from "./pages/AIAgents";
 import AIReadinessAssessment from "./pages/AIReadinessAssessment";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/profile" element={<Profile />} />
             <Route path="/ai-agents" element={<AIAgents />} />
             <Route path="/ai-readiness" element={<AIReadinessAssessment />} />
+            <Route path="/about" element={<About />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
